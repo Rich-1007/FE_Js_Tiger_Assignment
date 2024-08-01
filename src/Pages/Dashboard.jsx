@@ -81,11 +81,10 @@ const Dashboard = () => {
     <>
       <div className="flex flow-row bg-gray-200  flex-grow lg:pl-36 ">
         <div className="w-full ">
-          <div className=" w-full md:px-10 h-14 flex flex-row justify-around md:justify-between border-b border-gray-400 px-4 items-center">
-            <span className="font-bold lg:text-base text-sm">Dashboard</span>
+          <div className=" w-full md:px-10  h-14 flex flex-row justify-around md:justify-between border-b border-gray-400 pl-8 px-4 items-center">
+            <span className="font-bold  lg:text-base text-sm">Dashboard</span>
             <div className="flex  flex-row items-center gap-3">
               <div className="relative">
-                {/* <div className="bg-red-500 absolute top-0 left-2.5 h-2 w-2 rounded-full"></div> */}
                 <IoNotificationsOutline size={18} />
               </div>
               <div className="flex flex-row gap-1 items-center lg:pr-2">
@@ -105,9 +104,9 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="flex flex-col  lg:py-0 py-5 px-10  gap-4 lg:gap-0 items-center lg:flex-row justify-between w-full ">
-            <div className="lg:py-6 w-full px-10 lg:px-0 ">
-              <div className="flex flex-row justify-between items-center bg-white shadow-xl w-full lg:w-56 rounded-xl px-3 py-3">
+          <div className=" flex flex-col lg:py-0 py-5 md:px-10 gap-4 lg:gap-0 items-center lg:flex-row justify-between w-full  ">
+            <div className="lg:py-6 w-full px-3 lg:px-0 ">
+              <div className="flex  flex-row justify-between items-center bg-white shadow-xl w-full lg:w-56 rounded-xl px-3 py-3">
                 <div className="flex flex-col">
                   <span className="font-bold text-[10px]">Total Bookings</span>
                   <span className="font-bold text-lg">
@@ -120,7 +119,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="lg:py-6 w-full px-10 lg:px-0 flex justify-center ">
+            <div className="lg:py-6 w-full px-3 lg:px-0 flex justify-center ">
               <div className="flex flex-row justify-between items-center    bg-white shadow-xl  w-full lg:w-56  rounded-xl px-3 py-3">
                 <div className="flex flex-col">
                   <span className="font-bold text-[10px]">
@@ -136,7 +135,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="lg:py-6 w-full px-10 lg:px-0 flex justify-center ">
+            <div className="lg:py-6 w-full px-3 lg:px-0 flex justify-center ">
               <div className="flex flex-row justify-between items-center    bg-white shadow-xl  w-full lg:w-56  rounded-xl px-3 py-3">
                 <div className="flex flex-col">
                   <span className="font-bold text-[10px]">
@@ -150,7 +149,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="lg:py-6 w-full px-10 lg:px-0  flex justify-end">
+            <div className="lg:py-6 w-full px-3 lg:px-0  flex justify-end">
               <div className="flex flex-row justify-between items-center    bg-white shadow-xl  w-full lg:w-56  rounded-xl px-3 py-3">
                 <div className="flex flex-col">
                   <span className="font-bold text-[10px]">Utilization</span>
@@ -163,13 +162,13 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className=" h-80 overflow-hidden w-full px-10">
+          <div className=" h-80 overflow-hidden w-full px-3 md:px-10">
             <div className="bg-white rounded-xl shadow-xl ">
               <Maps />
             </div>
           </div>
 
-          <div className="overflow-hidden w-full px-10">
+          <div className="overflow-hidden w-full px-3 md:px-10">
             <div className="bg-white rounded-xl shadow-xl overflow-hidden ">
               <DoughNut shipmentsData={shipmentsData} />
             </div>

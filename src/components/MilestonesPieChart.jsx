@@ -3,8 +3,6 @@ import ReactApexChart from "react-apexcharts";
 import { getLocations, getShipments } from "../data";
 
 import { useState } from "react";
-import { object } from "prop-types";
-import { Filler } from "chart.js";
 
 const MilestonesPieChart = () => {
   const [shipmentsData, setShipmentsData] = useState();
@@ -21,7 +19,7 @@ const MilestonesPieChart = () => {
     }
   }, [shipmentsData]);
 
-  console.log(milestones);
+  // console.log(milestones);
 
   const shipmentFetch = async () => {
     const fetchShipmentsData = await getShipments();

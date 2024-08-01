@@ -67,15 +67,6 @@ const Navbar = () => {
               </div>
             </NavLink>
 
-            {/* 
-
-          <div className="flex items-center justify-start w-full text-white py-2  px-2 rounded-lg  hover:cursor-pointer hover:bg-[#85170d] gap-1">
-            <div className="flex justify-start gap-2">
-              <SiSimpleanalytics color="white" size={17} />
-              <span>Analytics</span>
-            </div>
-          </div> */}
-
             <div className="flex items-center w-full  justify-start text-white py-2  px-2 rounded-lg  hover:cursor-pointer hover:bg-[#85170d] gap-1">
               <div className="flex justify-start items-center w-full gap-2 text-nowrap">
                 <MdEditDocument color="white" size={17} />

@@ -1,33 +1,65 @@
 export const getDonutData = (shipmentsData) => {
-  const loadingCount = shipmentsData?.data.reduce((acc, curr) => {
+  let loadingCount = shipmentsData?.data.reduce((acc, curr) => {
     const loading = curr.loading;
     acc[loading] = (acc[loading] || 0) + 1;
     return acc;
   }, {});
 
-  const deliveryCount = shipmentsData?.data.reduce((acc, curr) => {
+  loadingCount = getFirstFiveAndOthers(loadingCount);
+
+  let deliveryCount = shipmentsData?.data.reduce((acc, curr) => {
     const loading = curr.delivery;
     acc[loading] = (acc[loading] || 0) + 1;
     return acc;
   }, {});
+  deliveryCount = getFirstFiveAndOthers(deliveryCount);
 
-  const carrierCount = shipmentsData?.data.reduce((acc, curr) => {
+  let carrierCount = shipmentsData?.data.reduce((acc, curr) => {
     const loading = curr.carrier;
     acc[loading] = (acc[loading] || 0) + 1;
     return acc;
   }, {});
 
-  const shipperCount = shipmentsData?.data.reduce((acc, curr) => {
+  carrierCount = getFirstFiveAndOthers(carrierCount);
+
+  let shipperCount = shipmentsData?.data.reduce((acc, curr) => {
     const loading = curr.shipper;
     acc[loading] = (acc[loading] || 0) + 1;
     return acc;
   }, {});
 
-  const milestoneCount = shipmentsData?.data.reduce((acc, curr) => {
+  shipperCount = getFirstFiveAndOthers(shipperCount);
+
+  let milestoneCount = shipmentsData?.data.reduce((acc, curr) => {
     const loading = curr.milestone;
     acc[loading] = (acc[loading] || 0) + 1;
     return acc;
   }, {});
 
-  return [loadingCount, deliveryCount, carrierCount, shipperCount, milestoneCount];
+  milestoneCount = getFirstFiveAndOthers(milestoneCount);
+
+  return [
+    loadingCount,
+    deliveryCount,
+    carrierCount,
+    shipperCount,
+    milestoneCount,
+  ];
 };
+
+function getFirstFiveAndOthers(data) {
+  const keys = Object.keys(data);
+  const result = {};
+  let othersTotal = 0;
+
+  keys.forEach((key, index) => {
+    if (index < 5) {
+      result[key] = data[key];
+    } else {
+      othersTotal += data[key];
+    }
+  });
+
+  result.others = othersTotal;
+  return result;
+}

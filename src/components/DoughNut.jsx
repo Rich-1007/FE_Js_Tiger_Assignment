@@ -48,8 +48,14 @@ const DoughNut = ({ shipmentsData }) => {
 
   return (
     <>
-      <div className="px-4 py-5">
-        <div className="flex gap-4 lg:items-start items-center lg:flex-row flex-col justify-center ">
+      <div className="px-4 py-5 ">
+        <div className="pb-4">
+          <span className="text-gray-600 font-bold text-lg">
+            Pie Chart Analysis
+          </span>
+        </div>
+
+        <div className="flex md:gap-4 gap-12 lg:items-start items-center lg:flex-row flex-col justify-between ">
           {donutCharts &&
             donutCharts.map((item, index) => (
               <div className="lg:w-44 w-full ">

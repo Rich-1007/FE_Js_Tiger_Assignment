@@ -5,6 +5,14 @@ Chart.register(ArcElement);
 
 const DonutData = ({ legendText, chartData }) => {
   const [data, setData] = useState();
+  const colors = [
+    "#EB5D50",
+    "#F7A668",
+    "#7BB896",
+    "#1073E6",
+    "#856562",
+    "#6B120A",
+  ];
 
   console.log(chartData);
   useEffect(() => {
@@ -14,13 +22,8 @@ const DonutData = ({ legendText, chartData }) => {
         datasets: [
           {
             label: "My First dataset",
-            backgroundColor: [
-              "#6B120A",
-              "#EB5D50",
-              "#F7A668",
-              "#856562",
-              "#7BB896",
-            ],
+            backgroundColor: colors,
+
             borderColor: "rgb(255, 255, 255)",
             data: Object.values(chartData),
           },
@@ -34,26 +37,23 @@ const DonutData = ({ legendText, chartData }) => {
   return (
     <div className="w-full">
       <Doughnut width={"full"} data={data} />
-      <h1 className="text-center font-Poppins font-semibold py-1 text-lg text-nowrap">
+      <h2 className="text-center font-Poppins font-semibold py-1 text-md text-gray-600 text-nowrap">
         {legendText}
-      </h1>
+      </h2>
 
       <div>
         {chartData &&
-          Object.keys(chartData)
-            .slice(0, 5)
-            .map((item, index) => {
-              return (
-                <div className="flex flex-row items-center gap-2">
-                  <div className="bg-[#7BB896] rounded-full h-3 w-3"></div>
-                  <span className="text-sm line-clamp-1">{item}</span>
-                </div>
-              );
-            })}
-        <div className="flex flex-row items-center gap-2">
-          <div className="bg-[#7BB896] rounded-full h-3 w-3"></div>
-          <span className="text-sm text-nowrap ">Other</span>
-        </div>
+          Object.keys(chartData).map((item, index) => {
+            return (
+              <div className="flex flex-row items-center gap-2">
+                <div
+                  style={{ backgroundColor: `${colors[index]}` }}
+                  className={` rounded-full h-3 w-3`}
+                ></div>
+                <span className="text-xs line-clamp-1">{item}</span>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

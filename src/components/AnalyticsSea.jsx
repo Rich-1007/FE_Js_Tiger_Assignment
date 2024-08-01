@@ -4,7 +4,6 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import AnalyticsTable from "./AnalyticsTable";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
-
 import MilestonesPieChart from "./MilestonesPieChart";
 import TimelinesPieChart from "./TimelinesPieChart";
 

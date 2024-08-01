@@ -3,8 +3,6 @@ import ReactApexChart from "react-apexcharts";
 import { getLocations, getShipments } from "../data";
 
 import { useState } from "react";
-import { object } from "prop-types";
-import { Filler } from "chart.js";
 
 const PaiChart = () => {
   const [shipmentsData, setShipmentsData] = useState();

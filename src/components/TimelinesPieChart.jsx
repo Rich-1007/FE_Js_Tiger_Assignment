@@ -1,27 +1,61 @@
 import React, { useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
-import { getLocations, getShipments } from "../data";
+import { getShipments } from "../data";
 
 import { useState } from "react";
-import { object } from "prop-types";
-import { Filler } from "chart.js";
 
 const TimelinesPieChart = () => {
   const [shipmentsData, setShipmentsData] = useState();
-  const [milestones, setMilestones] = useState();
+  const [onTime, setOnTime] = useState();
+  const [onLate, setLate] = useState();
+
+  // console.log( onTime);
+
+  function getEstimatedTimeOfArrival(data) {
+    return data?.map((item) => item.estimated_time_of_arrival);
+  }
+
+  function getActualTimeOfArrival(data) {
+    return data?.map((item) => item.actual_time_of_arrival);
+  }
+
+  function countSimilarArrivalTimes(estimatedTimes, actualTimes) {
+    let count = 0;
+    estimatedTimes?.forEach((estimated) => {
+      if (actualTimes?.includes(estimated)) {
+        count++;
+      }
+    });
+    return count;
+  }
+
+  function countDifferentArrivalTimes(estimatedTimes, actualTimes) {
+    let count = 0;
+    actualTimes?.forEach((actual) => {
+      if (!estimatedTimes?.includes(actual)) {
+        count++;
+      }
+    });
+    return count;
+  }
 
   useEffect(() => {
-    if (shipmentsData) {
-      const counter = {};
-      shipmentsData.forEach((item) => {
-        counter[item?.milestone] = (counter[item?.milestone] || 0) + 1;
-      });
-      setMilestones(counter);
-      setSeries(Object.values(counter));
-    }
-  }, [shipmentsData]);
+    const estimatedTimesOfArrival = getEstimatedTimeOfArrival(shipmentsData);
+    const actualTimesOfArrival = getActualTimeOfArrival(shipmentsData);
 
-  console.log(milestones);
+    const similarTimesCount = countSimilarArrivalTimes(
+      estimatedTimesOfArrival,
+      actualTimesOfArrival
+    );
+    const differentTimesCount = countDifferentArrivalTimes(
+      estimatedTimesOfArrival,
+      actualTimesOfArrival
+    );
+
+    setOnTime(similarTimesCount);
+
+    setSeries([similarTimesCount, differentTimesCount]);
+  }, [shipmentsData]);
 
   const shipmentFetch = async () => {
     const fetchShipmentsData = await getShipments();
@@ -38,7 +72,9 @@ const TimelinesPieChart = () => {
       width: 380,
       type: "pie",
     },
-    labels: ["BOOKED", "DISCHARGED", "DELIVERED", "ARRIVED", "RETURNED"],
+
+    labels: ["ON TIME (25)", "LATE (0)"],
+
     responsive: [
       {
         breakpoint: 480,
@@ -52,7 +88,7 @@ const TimelinesPieChart = () => {
         },
       },
     ],
-    colors: ["#6B120A", "#EB5D50", "#F7A668", "#7BB896", "#1073E6"],
+    colors: ["#7BB896", "#F7A668"],
     dataLabels: {
       enabled: true,
       formatter: function (val, opts) {
@@ -67,7 +103,7 @@ const TimelinesPieChart = () => {
   });
 
   return (
-    <div id="chart" >
+    <div id="chart">
       <ReactApexChart
         options={options}
         series={series}

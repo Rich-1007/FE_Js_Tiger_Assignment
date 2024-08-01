@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  FaAngleDown,
-} from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 import { HiTruck } from "react-icons/hi";
 import { IoAirplaneOutline, IoNotificationsOutline } from "react-icons/io5";
 import { LuShip } from "react-icons/lu";
@@ -10,7 +8,6 @@ import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 const Analytics = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  
   return (
     <>
       <div className="bg-gray-200 lg:px-8 px-2  pb-8 overflow-hidden flex-grow lg:pl-44">
@@ -22,12 +19,11 @@ const Analytics = () => {
               <IoNotificationsOutline size={18} />
             </div>
             <div className="flex flex-row gap-1 items-center lg:pr-2">
-             
               <img
-                  src="/images.jpg"
-                  className="lg:h-9 h-7 object-cover w-7 lg:w-9 rounded-full"
-                  alt=""
-                />
+                src="/images.jpg"
+                className="lg:h-9 h-7 object-cover w-7 lg:w-9 rounded-full"
+                alt=""
+              />
               <div className="flex flex-col ">
                 <span className="font-bold lg:text-xs text-[10px]">
                   Edward William
@@ -50,11 +46,9 @@ const Analytics = () => {
             }
             to="/analytics/sea"
           >
-            {/* <div className="border-b-2 flex flex-row w-16 text-orange-500 py-1 border-orange-400 justify-center items-center gap-2 "> */}
-            <LuShip size={20} />
+             <LuShip size={20} />
             <span>Sea</span>
-            {/* </div> */}
-          </NavLink>
+           </NavLink>
 
           <NavLink
             className={({ isActive }) =>
@@ -66,10 +60,9 @@ const Analytics = () => {
             }
             to="/analytics/air"
           >
-            {/* <div className="border-b-2 flex flex-row w-16 text-orange-500 py-1 border-orange-400 justify-center items-center gap-2"> */}
-            <IoAirplaneOutline size={20} />
+             <IoAirplaneOutline size={20} />
             <span>Air</span>
-            {/* </div> */}
+         
           </NavLink>
 
           <NavLink

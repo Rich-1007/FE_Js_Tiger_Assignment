@@ -3,14 +3,10 @@ import { getShipments } from "../data";
 import { useSearchParams } from "react-router-dom";
 
 const AnalyticsTable = () => {
-  const [searchParams,setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [shipmentsData, setShipmentsData] = useState();
 
-
-
-
-  
   const shipmentFetch = async () => {
     const fetchShipmentsData = await getShipments();
     setShipmentsData(fetchShipmentsData.data);
@@ -19,10 +15,6 @@ const AnalyticsTable = () => {
   useEffect(() => {
     shipmentFetch();
   }, []);
-
-
-
-
 
   const pageNumber = searchParams.get("page") || "1";
   const pageSize = searchParams.get("limit") || "10";
@@ -89,70 +81,75 @@ const AnalyticsTable = () => {
             </tr>
           </thead>
           <tbody>
+            {shipmentsData
+              ?.slice((+pageNumber - 1) * +pageSize, +pageNumber * +pageSize)
+              .map((item) => (
+                <tr
+                  key={item.id}
+                  className="border-b hover:bg-gray-50 lg:text-sm text-[13px]  "
+                >
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.hbl_no}
+                  </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.mbl_no}{" "}
+                  </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.po_ref_no}
+                  </td>
 
-            {shipmentsData?.slice((+pageNumber - 1) * +pageSize, +pageNumber * +pageSize).map((item) => (
-              <tr
-                key={item.id}
-                className="border-b hover:bg-gray-50 lg:text-sm text-[13px]  "
-              >
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.hbl_no}
-                </td>
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.mbl_no}{" "}
-                </td>
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.po_ref_no}
-                </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    <p>{item.recipt}</p>
 
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  <p>{item.recipt}</p>
+                    <p className="text-[12px] ">
+                      {formatDate(item.recipt_date)}
+                    </p>
+                  </td>
 
-                  <p className="text-[12px] ">{formatDate(item.recipt_date)}</p>
-                </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    <p>{item.loading}</p>
 
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  <p>{item.loading}</p>
+                    <p className="text-[12px]">
+                      {formatDate(item.loading_date)}
+                    </p>
+                  </td>
 
-                  <p className="text-[12px]">{formatDate(item.loading_date)}</p>
-                </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    <p>{item.discharge}</p>
 
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  <p>{item.discharge}</p>
+                    <p className="text-[12px]">
+                      {formatDate(item.discharge_date)}
+                    </p>
+                  </td>
 
-                  <p className="text-[12px]">
-                    {formatDate(item.discharge_date)}
-                  </p>
-                </td>
+                  <td className="py-1 px-4 whitespace-pre-wrap text-nowrap ">
+                    <p>{item.delivery}</p>
 
-                <td className="py-1 px-4 whitespace-pre-wrap text-nowrap ">
-                  <p>{item.delivery}</p>
+                    <p className="text-[12px]">
+                      {formatDate(item.delivery_date)}
+                    </p>
+                  </td>
 
-                  <p className="text-[12px]">
-                    {formatDate(item.delivery_date)}
-                  </p>
-                </td>
-
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.booking_no}
-                </td>
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.size_type}
-                </td>
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.carrier}
-                </td>
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.commodity}
-                </td>
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.milestone}
-                </td>
-                <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
-                  {item.milestone_group}
-                </td>
-              </tr>
-            ))}
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.booking_no}
+                  </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.size_type}
+                  </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.carrier}
+                  </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.commodity}
+                  </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.milestone}
+                  </td>
+                  <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
+                    {item.milestone_group}
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
