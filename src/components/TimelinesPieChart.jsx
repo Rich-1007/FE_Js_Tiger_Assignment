@@ -6,7 +6,7 @@ import { useState } from "react";
 import { object } from "prop-types";
 import { Filler } from "chart.js";
 
-const MilestonesPieChart = () => {
+const TimelinesPieChart = () => {
   const [shipmentsData, setShipmentsData] = useState();
   const [milestones, setMilestones] = useState();
 
@@ -67,7 +67,7 @@ const MilestonesPieChart = () => {
   });
 
   return (
-    <div id="chart">
+    <div id="chart" >
       <ReactApexChart
         options={options}
         series={series}
@@ -78,4 +78,4 @@ const MilestonesPieChart = () => {
   );
 };
 
-export default MilestonesPieChart;
+export default TimelinesPieChart;

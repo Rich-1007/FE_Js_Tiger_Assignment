@@ -15,6 +15,7 @@
 }
 .leaflet-container {
   height: 40vh;
+  z-index: 0;
 }
 
 *{

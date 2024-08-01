@@ -19,9 +19,9 @@ const Navbar = () => {
   }
   return (
     <>
-      <div className="fixed">
+      <div className="fixed z-20">
         <div className="relative bg-gray-200 outline-none  rounded-2xl ">
-          <div className=" z-20 flex justify-center items-center lg:hidden absolute top-4 left-3">
+          <div className=" flex justify-center items-center lg:hidden absolute top-4 left-3">
             <GiHamburgerMenu size={25} onClick={handleToggle} color="orange" />
           </div>
           <div

@@ -6,6 +6,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
 
 import MilestonesPieChart from "./MilestonesPieChart";
+import TimelinesPieChart from "./TimelinesPieChart";
 
 const AnalyticsSea = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,7 +15,6 @@ const AnalyticsSea = () => {
   const pageSize = searchParams.get("limit") || "10";
   return (
     <>
-    
       <div className=" rounded-lg flex lg:flex-row flex-col space-y-2  w-full items-center py-4 bg-white my-6 ">
         <div className="flex items-center justify-between ">
           <label className="font-semibold text-sm px-2" htmlFor="">
@@ -72,21 +72,17 @@ const AnalyticsSea = () => {
             </div>
           </div>
 
-
-
-
-          <div className=" h-full flex justify-center">
-          <MilestonesPieChart />
+          <div className=" h-full flex justify-center z-0">
+            <MilestonesPieChart />
           </div>
         </div>
 
-
-
-
-
-        <div className="  rounded-lg   h-60 lg:w-1/2 shadow-lg bg-white">
+        <div className="  rounded-lg  lg:w-1/2 shadow-lg bg-white">
           <div className="flex justify-start items-center  px-4  py-3">
             <span className="font-semibold text-gray-700">Timelines</span>
+          </div>
+          <div className=" h-full flex justify-center">
+            <TimelinesPieChart />
           </div>
         </div>
       </div>
@@ -194,8 +190,6 @@ const AnalyticsSea = () => {
           </div>
         </div>
       </div>
-
-     
     </>
   );
 };

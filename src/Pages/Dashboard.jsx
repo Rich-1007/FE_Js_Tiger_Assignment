@@ -85,12 +85,12 @@ const Dashboard = () => {
             <span className="font-bold lg:text-base text-sm">Dashboard</span>
             <div className="flex  flex-row items-center gap-3">
               <div className="relative">
-                <div className="bg-red-500 absolute top-0 left-2.5 h-2 w-2 rounded-full"></div>
+                {/* <div className="bg-red-500 absolute top-0 left-2.5 h-2 w-2 rounded-full"></div> */}
                 <IoNotificationsOutline size={18} />
               </div>
               <div className="flex flex-row gap-1 items-center lg:pr-2">
                 <img
-                  src="public/images.jpg"
+                  src="/images.jpg"
                   className="lg:h-9 h-7 object-cover w-7 lg:w-9 rounded-full"
                   alt=""
                 />
@@ -163,71 +163,11 @@ const Dashboard = () => {
             </div>
           </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <div className=" h-80 overflow-hidden w-full px-10">
             <div className="bg-white rounded-xl shadow-xl ">
-
-
-
-
-
-          <Maps />
-
-
-
-
-
-
-
-
+              <Maps />
             </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           <div className="overflow-hidden w-full px-10">
             <div className="bg-white rounded-xl shadow-xl overflow-hidden ">
