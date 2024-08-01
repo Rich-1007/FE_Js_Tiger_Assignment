@@ -46,7 +46,7 @@ const DonutData = ({ legendText, chartData }) => {
               return (
                 <div className="flex flex-row items-center gap-2">
                   <div className="bg-[#7BB896] rounded-full h-3 w-3"></div>
-                  <span className="text-sm text-wrap">{item}</span>
+                  <span className="text-sm line-clamp-1">{item}</span>
                 </div>
               );
             })}

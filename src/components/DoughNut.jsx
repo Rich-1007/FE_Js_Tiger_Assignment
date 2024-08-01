@@ -48,15 +48,17 @@ const DoughNut = ({ shipmentsData }) => {
 
   return (
     <>
-      <div className=" px-4 ">
-        <div className="flex gap-4 items-center ">
+      <div className="px-4 py-5">
+        <div className="flex gap-4 lg:items-start items-center lg:flex-row flex-col justify-center ">
           {donutCharts &&
             donutCharts.map((item, index) => (
-              <DonutData
-                key={index}
-                legendText={labels[index]}
-                chartData={item}
-              />
+              <div className="lg:w-44 w-full ">
+                <DonutData
+                  key={index}
+                  legendText={labels[index]}
+                  chartData={item}
+                />
+              </div>
             ))}
         </div>
       </div>
