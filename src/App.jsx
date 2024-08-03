@@ -20,20 +20,20 @@ const router = createBrowserRouter([
       {
         path: "/analytics",
         element: <Analytics />,
-        children:[
+        children: [
           {
-            path:"air",
-            element:<AnalyticsAir />
+            path: "air",
+            element: <AnalyticsAir />,
           },
           {
-            path:"land",
-            element:<AnalyticsLand />
+            path: "land",
+            element: <AnalyticsLand />,
           },
           {
-            path:"sea",
-            element:<AnalyticsSea />
+            path: "sea",
+            element: <AnalyticsSea />,
           },
-        ]
+        ],
       },
     ],
   },
@@ -44,12 +44,10 @@ function App() {
     <>
       <Outlet />
       <RouterProvider router={router} />
-    
+
       {/* <Analytics /> */}
 
-
       {/* <Navbar /> */}
-    
     </>
   );
 }

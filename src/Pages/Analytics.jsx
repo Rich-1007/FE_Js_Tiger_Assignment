@@ -46,9 +46,9 @@ const Analytics = () => {
             }
             to="/analytics/sea"
           >
-             <LuShip size={20} />
+            <LuShip size={20} />
             <span>Sea</span>
-           </NavLink>
+          </NavLink>
 
           <NavLink
             className={({ isActive }) =>
@@ -60,9 +60,8 @@ const Analytics = () => {
             }
             to="/analytics/air"
           >
-             <IoAirplaneOutline size={20} />
+            <IoAirplaneOutline size={20} />
             <span>Air</span>
-         
           </NavLink>
 
           <NavLink

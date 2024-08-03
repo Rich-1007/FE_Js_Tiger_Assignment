@@ -65,9 +65,9 @@ const AnalyticsSea = () => {
       <div className="h-fit w-full flex lg:gap-7 gap-5 lg:flex-row flex-col py-2 ">
         <div className="rounded-lg  lg:w-1/2 shadow-lg bg-white">
           <div className="flex  justify-between  items-center  px-4  py-2 ">
-            <span className=" font-semibold text-gray-700">Milestones</span>
-            <div className=" text-gray-600 font-thin border border-gray-300 rounded-lg px-3 py-1">
-              <span>IN-TRANSIT (463)</span>
+            <span className=" font-semibold text-gray-600">Milestones</span>
+            <div className="border border-gray-400 rounded-lg px-3 py-1">
+              <span className="font-light text-gray-400">IN-TRANSIT (463)</span>
             </div>
           </div>
 
