@@ -1,22 +1,14 @@
-import { Doughnut } from "react-chartjs-2";
 import React, { useEffect, useState } from "react";
 import { FaAngleDown, FaHistory, FaRegUserCircle } from "react-icons/fa";
 import { IoNotifications, IoNotificationsOutline } from "react-icons/io5";
-import {
-  MdArchive,
-  MdBlockFlipped,
-  MdDashboard,
-  MdEditDocument,
-  MdFolderShared,
-} from "react-icons/md";
+import { MdArchive, MdBlockFlipped } from "react-icons/md";
 import { PiNote, PiNotebook, PiNotebookDuotone } from "react-icons/pi";
-import { RiStoreFill } from "react-icons/ri";
-import { SiSimpleanalytics } from "react-icons/si";
 import { getDocuments, getShipments } from "../data";
 import { BiSolidPieChartAlt } from "react-icons/bi";
-import { GiHamburgerMenu } from "react-icons/gi";
 import Maps from "../components/Maps";
 import DoughNut from "../components/DoughNut";
+import LatestDocuments from "../components/LatestDocuments.jsx";
+import Loading from "../components/Loading.jsx";
 
 const Dashboard = () => {
   const [shipmentsData, setShipmentsData] = useState();
@@ -49,33 +41,6 @@ const Dashboard = () => {
   const booking_no = shipmentsData?.data.filter((item) => {
     return item?.booking_no ? true : false;
   });
-
-  const OriginPort = shipmentsData?.data.map((item) => {
-    return item.loading;
-  });
-
-  const DestinationPort = shipmentsData?.data.map((item) => {
-    return item.delivery;
-  });
-
-  const Carrier = shipmentsData?.data.map((item) => {
-    return item.carrier;
-  });
-
-  const Shipper = shipmentsData?.data.map((item) => {
-    return item.shipper;
-  });
-
-  const Milestones = shipmentsData?.data.map((item) => {
-    return item.milestone;
-  });
-
-  const [isTrue, setIsTrue] = useState(true);
-
-  function handleToggle(prev) {
-    setIsTrue(!prev);
-  }
-  // console.log(isTrue);
 
   return (
     <>
@@ -176,37 +141,15 @@ const Dashboard = () => {
 
           <div className=" lg:px-10 px-3 flex flex-col lg:flex-row gap-5 py-10">
             <div className="bg-white h-96  flex flex-col rounded-xl px-4 py-3 shadow-xl lg:w-1/2">
-              <div>Latest Documents</div>
+              <div className="font-bold text-gray-600">Latest Documents</div>
 
-              <div className="overflow-y-auto flex flex-col gap-4 px-1 py-1">
-                {documentsData?.data.map((item) => {
-                  return (
-                    <div className="flex border-b items-center">
-                      <div>
-                        <img src="public/PDF-img.png" alt="" className="h-8" />
-                      </div>
-                      <div className="flex flex-row justify-between w-full items-center">
-                        <div className="flex flex-col">
-                          <span className="font-bold text-sm">
-                            {item.title}
-                          </span>
-                          <span className="text-xs text-gray-400">
-                            {item.description}
-                          </span>
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-xs text-gray-500">
-                            Nov 29,2023
-                          </span>
-                          <span className="text-xs text-gray-500">
-                            10:27 Am
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              {!documentsData ? (
+                <div className=" h-full flex items-center justify-center ">
+                  <Loading />
+                </div>
+              ) : (
+                <LatestDocuments documentsData={documentsData} />
+              )}
             </div>
             <div className="h-96 bg-white flex flex-col rounded-xl px-4 py-3 shadow-xl lg:w-1/2  gap-4">
               <span className="font-bold text-gray-600">Announcements</span>
