@@ -13,7 +13,6 @@ Currently, two official plugins are available:
 
 ![Analytics](https://github.com/user-attachments/assets/6487b302-a13b-49f0-b401-4fff1e2cde5b)
 
-![Screenshot_20240806-000237](https://github.com/user-attachments/assets/5e357e12-09df-491e-b0d5-1a51442bbff9)    ![Screenshot_20240806-000237](https://github.com/user-attachments/assets/f7a49bb9-7c97-448e-b90e-74d6a0bd1d35)
 
 
  
