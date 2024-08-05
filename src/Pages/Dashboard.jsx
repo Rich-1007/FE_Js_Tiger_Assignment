@@ -214,7 +214,7 @@ const Dashboard = () => {
                 Soon you will see latest annoucements/new in this section.
               </span>
               <div className="flex justify-center items-center h-full">
-                <img src="public/Layer_1.png" alt="" />
+                <img src="/Layer_1.png" alt="" />
               </div>
             </div>
           </div>
