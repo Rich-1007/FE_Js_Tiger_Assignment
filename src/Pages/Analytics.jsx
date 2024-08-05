@@ -6,8 +6,6 @@ import { LuShip } from "react-icons/lu";
 import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 
 const Analytics = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
   return (
     <>
       <div className="bg-gray-200 lg:px-8 px-2  pb-8 overflow-hidden flex-grow lg:pl-44">

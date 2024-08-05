@@ -86,7 +86,7 @@ const AnalyticsSea = () => {
         </div>
       </div>
 
-      <div className="py-5 justify-between grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
+      <div className="py-5  justify-between grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
         <AnalyticsCard props={"loading"} />
         <AnalyticsCard props={"discharge"} />
         <AnalyticsCard props={"delivery"} />

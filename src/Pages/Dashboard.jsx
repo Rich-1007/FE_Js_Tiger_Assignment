@@ -13,12 +13,10 @@ import Loading from "../components/Loading.jsx";
 const Dashboard = () => {
   const [shipmentsData, setShipmentsData] = useState();
   const [documentsData, setDocumentsData] = useState();
-  // console.log(documentsData?.data);
 
   const YANTIAN = shipmentsData?.data.filter(
     (item) => item.loading === "QINGDAO, CHINA"
   ).length;
-  // console.log(YANTIAN);
 
   const shipmentFetch = async () => {
     const fetchShipmentsData = await getShipments();

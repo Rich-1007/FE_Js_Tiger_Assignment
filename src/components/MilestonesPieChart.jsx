@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
-import { getLocations, getShipments } from "../data";
+import { getShipments } from "../data";
 
 import { useState } from "react";
+import Loading from "./Loading";
 
 const MilestonesPieChart = () => {
   const [shipmentsData, setShipmentsData] = useState();
@@ -64,8 +65,16 @@ const MilestonesPieChart = () => {
     },
   };
 
+  if (!shipmentsData) {
+    return (
+      <div className="h-44 flex justify-center items-center">
+        <Loading />
+      </div>
+    );
+  }
+
   return (
-    <div id="chart">
+    <div id="chart ">
       <ReactApexChart
         options={options}
         series={series}

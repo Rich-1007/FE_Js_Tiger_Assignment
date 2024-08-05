@@ -3,13 +3,10 @@ import ReactApexChart from "react-apexcharts";
 import { getShipments } from "../data";
 
 import { useState } from "react";
+import Loading from "./Loading";
 
 const TimelinesPieChart = () => {
   const [shipmentsData, setShipmentsData] = useState();
-  const [onTime, setOnTime] = useState();
-  const [onLate, setLate] = useState();
-
-  // console.log( onTime);
 
   function getEstimatedTimeOfArrival(data) {
     return data?.map((item) => item.estimated_time_of_arrival);
@@ -51,9 +48,6 @@ const TimelinesPieChart = () => {
       estimatedTimesOfArrival,
       actualTimesOfArrival
     );
-
-    setOnTime(similarTimesCount);
-
     setSeries([similarTimesCount, differentTimesCount]);
   }, [shipmentsData]);
 
@@ -101,6 +95,14 @@ const TimelinesPieChart = () => {
       },
     },
   });
+
+  if (!shipmentsData) {
+    return (
+      <div className="h-44 flex justify-center items-center">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div id="chart">

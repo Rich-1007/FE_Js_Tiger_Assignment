@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getShipments } from "../data";
 import { useSearchParams } from "react-router-dom";
+import Loading from "./Loading";
 
 const AnalyticsTable = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [shipmentsData, setShipmentsData] = useState();
 
   const shipmentFetch = async () => {
@@ -18,7 +18,6 @@ const AnalyticsTable = () => {
 
   const pageNumber = searchParams.get("page") || "1";
   const pageSize = searchParams.get("limit") || "10";
-
   // console.log(shipmentsData[0].id);
 
   function formatDate(dateStr) {
@@ -27,6 +26,14 @@ const AnalyticsTable = () => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     const formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
+  }
+
+  if (!shipmentsData) {
+    return (
+      <div className="flex justify-center items-center bg-white py-2 px-3 w-full rounded-xl h-72">
+        <Loading />
+      </div>
+    );
   }
 
   return (
