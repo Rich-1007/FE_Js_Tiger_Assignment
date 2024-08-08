@@ -11,14 +11,13 @@ const AnalyticsSea = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const pageNumber = searchParams.get("page") || "1";
-  const pageSize = searchParams.get("limit") || "10";
+  // const pageSize = searchParams.get("limit") || "10";
+
   return (
     <>
       <div className=" rounded-lg flex lg:flex-row flex-col space-y-2  w-full items-center py-4 bg-white my-6 ">
         <div className="flex items-center justify-between ">
-          <label className="font-semibold text-sm px-2" htmlFor="">
-            Type
-          </label>
+          <label className="font-semibold text-sm px-2">Type</label>
           <input
             type="text"
             placeholder="Select"
@@ -111,7 +110,7 @@ const AnalyticsSea = () => {
                 className="border rounded-md text-sm w-12 p-1"
                 name="pageSize"
                 id="pageSize"
-                value={+pageSize}
+                // value={+pageSize}
                 onChange={(e) => {
                   searchParams.set("limit", `${e.target.value}`);
                   setSearchParams(searchParams);

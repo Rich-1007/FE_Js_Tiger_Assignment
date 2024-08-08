@@ -5,6 +5,8 @@ import DonutData from "./DonutData";
 const DoughNut = ({ shipmentsData }) => {
   const [donutCharts, setDonutCharts] = useState();
 
+  // console.log(donutCharts);
+
   useEffect(() => {
     if (shipmentsData) {
       const data = getDonutData(shipmentsData);
@@ -33,7 +35,7 @@ const DoughNut = ({ shipmentsData }) => {
         <div className="flex md:gap-4 gap-12 lg:items-start items-center lg:flex-row flex-col justify-between ">
           {donutCharts &&
             donutCharts.map((item, index) => (
-              <div className="lg:w-44 w-full ">
+              <div key={index} className="lg:w-44 w-full ">
                 <DonutData
                   key={index}
                   legendText={labels[index]}

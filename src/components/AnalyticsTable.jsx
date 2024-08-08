@@ -93,7 +93,7 @@ const AnalyticsTable = () => {
               .map((item) => (
                 <tr
                   key={item.id}
-                  className="border-b hover:bg-gray-50 lg:text-sm text-[13px]  "
+                  className="border-b hover:bg-gray-50 lg:text-sm text-[13px]"
                 >
                   <td className="py-2 px-4 whitespace-pre-wrap text-nowrap ">
                     {item.hbl_no}

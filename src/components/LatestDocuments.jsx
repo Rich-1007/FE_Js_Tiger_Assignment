@@ -4,9 +4,9 @@ const LatestDocuments = ({ documentsData }) => {
   return (
     <>
       <div className="overflow-y-auto flex flex-col gap-4 px-1 py-5">
-        {documentsData?.data.map((item) => {
+        {documentsData?.data.map((item, index) => {
           return (
-            <div className="flex border-b items-center">
+            <div className="flex border-b items-center" key={index}>
               <div>
                 <img src="public/PDF-img.png" alt="" className="h-8" />
               </div>

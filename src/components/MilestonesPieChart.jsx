@@ -8,6 +8,7 @@ import Loading from "./Loading";
 const MilestonesPieChart = () => {
   const [shipmentsData, setShipmentsData] = useState();
   const [milestones, setMilestones] = useState();
+  const [series, setSeries] = useState();
 
   useEffect(() => {
     if (shipmentsData) {
@@ -31,7 +32,6 @@ const MilestonesPieChart = () => {
     shipmentFetch();
   }, []);
 
-  const [series, setSeries] = useState();
   const options = {
     chart: {
       width: 380,

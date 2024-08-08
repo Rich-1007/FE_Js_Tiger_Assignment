@@ -7,16 +7,11 @@ import "leaflet/dist/leaflet.css";
 
 const Maps = () => {
   const [locationsData, setLocationsData] = useState();
-  const [initialPosition, setInitialPosition] = useState();
 
-  console.log(initialPosition);
   const shipmentFetch = async () => {
     const fetchShipmentsData = await getLocations();
     setLocationsData(fetchShipmentsData.data);
-    setInitialPosition([
-      fetchShipmentsData.data[0].lat,
-      fetchShipmentsData.data[0].long,
-    ]);
+    // console.log(fetchShipmentsData.data);
   };
 
   useEffect(() => {
@@ -25,12 +20,12 @@ const Maps = () => {
 
   const customIcon = new Icon({
     iconUrl: mark,
-    iconSize: [30, 30],
+    iconSize: [21, 27],
   });
 
   return (
     <div className="">
-      <MapContainer center={[22.5590503, 114.2324407]} zoom={4}>
+      <MapContainer center={[22.5590503, 114.2324407]} zoom={1}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

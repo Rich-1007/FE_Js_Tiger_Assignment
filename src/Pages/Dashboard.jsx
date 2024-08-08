@@ -14,18 +14,13 @@ const Dashboard = () => {
   const [shipmentsData, setShipmentsData] = useState();
   const [documentsData, setDocumentsData] = useState();
 
-  const YANTIAN = shipmentsData?.data.filter(
-    (item) => item.loading === "QINGDAO, CHINA"
-  ).length;
+  // const YANTIAN = shipmentsData?.data.filter(
+  //   (item) => item.loading === "QINGDAO, CHINA").length;
 
   const shipmentFetch = async () => {
     const fetchShipmentsData = await getShipments();
     setShipmentsData(fetchShipmentsData);
   };
-
-  useEffect(() => {
-    shipmentFetch();
-  }, []);
 
   const documentFetch = async () => {
     const fetchDocumentsData = await getDocuments();
@@ -34,11 +29,13 @@ const Dashboard = () => {
 
   useEffect(() => {
     documentFetch();
+    shipmentFetch();
   }, []);
 
   const booking_no = shipmentsData?.data.filter((item) => {
     return item?.booking_no ? true : false;
   });
+  // console.log(booking_no);
 
   return (
     <>

@@ -3,7 +3,6 @@ import "./App.css";
 import Analytics from "./Pages/Analytics";
 import Dashboard from "./Pages/Dashboard";
 import Layout from "./components/Layout";
-import Navbar from "./components/Navbar";
 import AnalyticsLand from "./components/AnalyticsLand";
 import AnalyticsAir from "./components/AnalyticsAir";
 import AnalyticsSea from "./components/AnalyticsSea";
@@ -44,10 +43,6 @@ function App() {
     <>
       <Outlet />
       <RouterProvider router={router} />
-
-      {/* <Analytics /> */}
-
-      {/* <Navbar /> */}
     </>
   );
 }

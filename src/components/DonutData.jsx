@@ -14,11 +14,10 @@ const DonutData = ({ legendText, chartData }) => {
     "#6B120A",
   ];
 
-  console.log(chartData);
   useEffect(() => {
     if (chartData) {
       setData({
-        labels: Object.keys(chartData),
+        // labels: Object.keys(chartData),
         datasets: [
           {
             label: "My First dataset",
@@ -31,9 +30,11 @@ const DonutData = ({ legendText, chartData }) => {
       });
     }
   }, [chartData]);
+
   if (!data) {
     return <h1>Loading..</h1>;
   }
+
   return (
     <div className="w-full">
       <Doughnut width={"full"} data={data} />
@@ -45,7 +46,7 @@ const DonutData = ({ legendText, chartData }) => {
         {chartData &&
           Object.keys(chartData).map((item, index) => {
             return (
-              <div className="flex flex-row items-center gap-2">
+              <div className="flex flex-row items-center gap-2" key={index}>
                 <div
                   style={{ backgroundColor: `${colors[index]}` }}
                   className={` rounded-full h-3 w-3`}

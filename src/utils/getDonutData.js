@@ -1,42 +1,35 @@
 export const getDonutData = (shipmentsData) => {
-  let loadingCount = shipmentsData?.data.reduce((acc, curr) => {
-    const loading = curr.loading;
-    acc[loading] = (acc[loading] || 0) + 1;
-    return acc;
-  }, {});
+  let AllloadingCount = {};
+  shipmentsData?.data.forEach((item) => {
+    AllloadingCount[item.loading] = (AllloadingCount[item.loading] || 0) + 1;
+  });
+  let loadingCount = getFirstFiveAndOthers(AllloadingCount);
 
-  loadingCount = getFirstFiveAndOthers(loadingCount);
+  let AlldeliveryCount = {};
+  shipmentsData?.data.forEach((item) => {
+    AlldeliveryCount[item.delivery] =
+      (AlldeliveryCount[item.delivery] || 0) + 1;
+  });
+  let deliveryCount = getFirstFiveAndOthers(AlldeliveryCount);
 
-  let deliveryCount = shipmentsData?.data.reduce((acc, curr) => {
-    const loading = curr.delivery;
-    acc[loading] = (acc[loading] || 0) + 1;
-    return acc;
-  }, {});
-  deliveryCount = getFirstFiveAndOthers(deliveryCount);
+  let AllcarrierCount = {};
+  shipmentsData?.data.forEach((item) => {
+    AllcarrierCount[item.carrier] = (AllcarrierCount[item.carrier] || 0) + 1;
+  });
+  let carrierCount = getFirstFiveAndOthers(AllcarrierCount);
 
-  let carrierCount = shipmentsData?.data.reduce((acc, curr) => {
-    const loading = curr.carrier;
-    acc[loading] = (acc[loading] || 0) + 1;
-    return acc;
-  }, {});
+  let AllshipperCount = {};
+  shipmentsData?.data.forEach((item) => {
+    AllshipperCount[item.shipper] = (AllshipperCount[item.shipper] || 0) + 1;
+  });
+  let shipperCount = getFirstFiveAndOthers(AllshipperCount);
 
-  carrierCount = getFirstFiveAndOthers(carrierCount);
-
-  let shipperCount = shipmentsData?.data.reduce((acc, curr) => {
-    const loading = curr.shipper;
-    acc[loading] = (acc[loading] || 0) + 1;
-    return acc;
-  }, {});
-
-  shipperCount = getFirstFiveAndOthers(shipperCount);
-
-  let milestoneCount = shipmentsData?.data.reduce((acc, curr) => {
-    const loading = curr.milestone;
-    acc[loading] = (acc[loading] || 0) + 1;
-    return acc;
-  }, {});
-
-  milestoneCount = getFirstFiveAndOthers(milestoneCount);
+  let AllmilestoneCount = {};
+  shipmentsData?.data.forEach((item) => {
+    AllmilestoneCount[item.milestone] =
+      (AllmilestoneCount[item.milestone] || 0) + 1;
+  });
+  let milestoneCount = getFirstFiveAndOthers(AllmilestoneCount);
 
   return [
     loadingCount,

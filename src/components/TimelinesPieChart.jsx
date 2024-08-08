@@ -5,8 +5,10 @@ import { getShipments } from "../data";
 import { useState } from "react";
 import Loading from "./Loading";
 
-const TimelinesPieChart = () => {
+const TimelinesPieChart = () => {  
   const [shipmentsData, setShipmentsData] = useState();
+
+
 
   function getEstimatedTimeOfArrival(data) {
     return data?.map((item) => item.estimated_time_of_arrival);
@@ -15,6 +17,8 @@ const TimelinesPieChart = () => {
   function getActualTimeOfArrival(data) {
     return data?.map((item) => item.actual_time_of_arrival);
   }
+
+
 
   function countSimilarArrivalTimes(estimatedTimes, actualTimes) {
     let count = 0;
@@ -36,6 +40,8 @@ const TimelinesPieChart = () => {
     return count;
   }
 
+
+
   useEffect(() => {
     const estimatedTimesOfArrival = getEstimatedTimeOfArrival(shipmentsData);
     const actualTimesOfArrival = getActualTimeOfArrival(shipmentsData);
@@ -51,6 +57,8 @@ const TimelinesPieChart = () => {
     setSeries([similarTimesCount, differentTimesCount]);
   }, [shipmentsData]);
 
+  
+
   const shipmentFetch = async () => {
     const fetchShipmentsData = await getShipments();
     setShipmentsData(fetchShipmentsData.data);
@@ -61,6 +69,7 @@ const TimelinesPieChart = () => {
   }, []);
 
   const [series, setSeries] = useState();
+
   const [options] = useState({
     chart: {
       width: 380,
