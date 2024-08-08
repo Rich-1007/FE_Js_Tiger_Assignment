@@ -1,4 +1,4 @@
-# React + Vite
+# FE_Js_Tiger_Assignment
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -12,7 +12,6 @@ Currently, two official plugins are available:
 
 
 ![Analytics](https://github.com/user-attachments/assets/6487b302-a13b-49f0-b401-4fff1e2cde5b)
-
 
 
 
